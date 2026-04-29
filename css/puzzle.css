@@ -1,0 +1,177 @@
+/* ===== PUZZLE THEMED DECORATIONS & CUSTOM CURSOR ===== */
+
+:root {
+    --cursor-inner-size: 8px;
+    --cursor-outer-size: 35px;
+    --cursor-color: rgba(77, 150, 250, 0.8);
+    --puzzle-bg-1: #224766;
+    --puzzle-bg-2: #CC361E;
+    --puzzle-bg-3: #B3B3B3;
+}
+
+
+/* --- FLOATING PUZZLE ELEMENTS --- */
+.floating-puzzle-extra {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatPuzzle 8s ease-in-out infinite;
+    /* Kill the broken SVG background and inline filters */
+    background-image: none !important;
+    background: none !important;
+    filter: none !important;
+    /* Override the too-low inline opacity */
+    opacity: 0.3 !important;
+    /* Use flexbox to center the FA icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-puzzle-extra::before {
+    content: "\f12e";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: inherit;
+    /* Base cool gradient */
+    background: linear-gradient(135deg, #224766, #1a3750);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+    display: block;
+    line-height: 1;
+}
+
+/* Mirror shapes and apply unique vibrant gradients so they look highly attractive */
+.floating-puzzle-extra:nth-child(2)::before { 
+    transform: scaleX(-1); 
+    background: linear-gradient(135deg, #CC361E, #a32b18);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.floating-puzzle-extra:nth-child(3)::before { 
+    transform: scaleY(-1); 
+    background: linear-gradient(135deg, #B3B3B3, #F59E0B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.floating-puzzle-extra:nth-child(4)::before { 
+    transform: scale(-1, -1); 
+    background: linear-gradient(135deg, #A855F7, #8B5CF6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.floating-puzzle-extra:nth-child(5)::before { 
+    transform: scaleX(-1); 
+    background: linear-gradient(135deg, #EC4899, #EF4444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.floating-puzzle-extra:nth-child(6)::before { 
+    transform: scaleY(-1); 
+    background: linear-gradient(135deg, #06B6D4, #1a3750);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.floating-puzzle-extra:nth-child(7)::before { 
+    transform: scale(-1, -1); 
+    background: linear-gradient(135deg, #CC361E, #F59E0B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.floating-puzzle-extra:nth-child(8)::before { 
+    transform: scaleX(-1); 
+    background: linear-gradient(135deg, #a32b18, #06B6D4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.floating-puzzle-extra:nth-child(9)::before { 
+    transform: scaleY(-1); 
+    background: linear-gradient(135deg, #8B5CF6, #EC4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.floating-puzzle-extra:nth-child(10)::before { 
+    transform: scale(-1, -1); 
+    background: linear-gradient(135deg, #F59E0B, #EF4444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animation Variations */
+.floating-puzzle-extra:nth-child(odd) { animation: floatPuzzleOdd 10s ease-in-out infinite; }
+.floating-puzzle-extra:nth-child(even) { animation: floatPuzzleEven 12s ease-in-out infinite; }
+.floating-puzzle-extra:nth-child(3n) { animation: floatPuzzleFast 7s ease-in-out infinite; }
+
+@keyframes floatPuzzle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(15deg) scale(1.05); }
+}
+
+@keyframes floatPuzzleOdd {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50% { transform: translateY(-40px) translateX(15px) rotate(-10deg) scale(1.1); }
+}
+
+@keyframes floatPuzzleEven {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50% { transform: translateY(30px) translateX(-20px) rotate(25deg) scale(0.95); }
+}
+
+@keyframes floatPuzzleFast {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(-20deg) scale(1.15); }
+}
+
+/* --- GLASSMORPHISM & BLING --- */
+.glass-card {
+    background: rgba(239, 239, 239, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(239, 239, 239, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.border-top-glow {
+    position: relative;
+}
+
+.border-top-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--puzzle-bg-1), var(--puzzle-bg-2), transparent);
+    opacity: 0.6;
+}
+
+/* Highlighting puzzle integration in service cards */
+.service-card {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-12px) scale(1.02);
+}
+
+/* Glassy Dropdown */
+.dropdown-menu {
+    background: rgba(239, 239, 239, 0.95); /* More opaque */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: none; /* Removed border as per user request */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+}

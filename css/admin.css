@@ -1,0 +1,108 @@
+/* Admin specific overrides */
+body {
+    background: #050505;
+}
+.admin-container {
+    min-height: 100vh;
+}
+.admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.95);
+    border-right: 1px solid var(--surface-border);
+    z-index: 10;
+}
+.admin-nav-links {
+    list-style: none;
+    padding: 0;
+}
+.admin-nav-links li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+.admin-nav-links li a i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+.admin-nav-links li a:hover, .admin-nav-links li a.active {
+    background: rgba(252, 163, 17, 0.1);
+    color: var(--accent-color);
+    border-right: 4px solid var(--accent-color);
+}
+.admin-content {
+    margin-left: 250px;
+    padding: 40px;
+    width: calc(100% - 250px);
+}
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--surface-border);
+}
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface-color);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+.admin-table th, .admin-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--surface-border);
+    vertical-align: middle;
+}
+.admin-table th {
+    background: rgba(0,0,0,0.4);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+.admin-table tr:hover {
+    background: rgba(239, 239, 239, 0.02);
+}
+.table-responsive {
+    overflow-x: auto;
+}
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.status-new { background: rgba(255, 107, 53, 0.2); color: #ff6b35; }
+.status-contacted { background: rgba(52, 152, 219, 0.2); color: #3498db; }
+.status-closed { background: rgba(46, 204, 113, 0.2); color: #2ecc71; }
+.action-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 15px;
+    transition: var(--transition-smooth);
+}
+.action-btn:hover {
+    color: var(--accent-color);
+}
+.admin-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: rgba(239, 239, 239,0.05);
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="bg-BG">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изработване на Сайт | Metropolitan Agency</title>
+    <meta name="description" content="Професионална изработка на уебсайтове — от Landing Page до пълноценен корпоративен сайт. Бързо, модерно и оптимизирано за резултати.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&subset=cyrillic,cyrillic-ext&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/puzzle.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QEL23Z1MJH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QEL23Z1MJH');
+</script>
+
+<style>
+
+/* ── Timeline ─────────────────────────────────────────────────── */
+.webdev-timeline {
+    padding: 90px 0;
+    background: var(--bg-primary, #0a0a0f);
+}
+.webdev-timeline h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+.webdev-timeline .section-sub {
+    text-align: center;
+    color: var(--text-secondary, #aaa);
+    margin-bottom: 60px;
+    font-size: 1rem;
+}
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.timeline-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(108,99,255,0.2);
+    border-radius: 20px;
+    padding: 32px 28px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6c63ff, #9b59b6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.timeline-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(108,99,255,0.5);
+    box-shadow: 0 20px 50px rgba(108,99,255,0.18);
+    background: rgba(108,99,255,0.07);
+}
+.timeline-card:hover::before { opacity: 1; }
+.timeline-card .day-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, rgba(108,99,255,0.25), rgba(155,89,182,0.25));
+    border: 1px solid rgba(108,99,255,0.4);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+}
+.timeline-card .card-icon {
+    font-size: 1.8rem;
+    color: var(--accent-color, #6c63ff);
+    margin-bottom: 16px;
+    display: block;
+}
+.timeline-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+.timeline-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* ── CTA ──────────────────────────────────────────────────────── */
+.webdev-cta-section {
+    padding: 80px 0;
+    background: var(--bg-primary, #0a0a0f);
+    text-align: center;
+    border-top: 1px solid rgba(108,99,255,0.1);
+}
+.webdev-cta-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 14px; }
+.webdev-cta-section p { color: #aaa; max-width: 520px; margin: 0 auto 32px; }
+
+@media (max-width: 640px) {
+    .timeline-grid { grid-template-columns: 1fr; }
+    .timeline-card { padding: 24px 20px; }
+}
+</style>
+
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center;"><img src="/images/logo.png" alt="Metropolitan Digital" height="50" style="margin-right: 0;"></a>
+            <div class="nav-links">
+                <div class="nav-dropdown">
+                    <a href="services.html" data-t="nav_services">Услуги <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="service-seo.html"><i class="fa-solid fa-chart-line"></i> <span data-t="service_seo_title">SEO Оптимизация</span></a>
+                        <a href="service-ads.html"><i class="fa-solid fa-bullseye"></i> <span data-t="service_ads_title">Реклама</span></a>
+                        <a href="service-social.html"><i class="fa-solid fa-hashtag"></i> <span data-t="service_social_title">Социални Мрежи</span></a>
+                        <a href="service-marketing.html"><i class="fa-solid fa-lightbulb"></i> <span data-t="service_plan_title">Маркетинг План</span></a>
+                        <a href="service-video.html"><i class="fa-solid fa-film"></i> <span data-t="service_video_title">Видео Обработка</span></a>
+                        <a href="service-branding.html"><i class="fa-solid fa-pen-nib"></i> <span data-t="service_branding_title">Брандинг & Дизайн</span></a>
+                        <a href="service-pr.html"><i class="fa-solid fa-newspaper"></i> <span data-t="service_pr_title">PR & Комуникации</span></a>
+                        <a href="service-webdev.html"><i class="fa-solid fa-code"></i> <span>Изработване на Сайт</span></a>
+                    </div>
+                </div>
+                <a href="index.html#about" data-t="nav_about">За нас</a>
+                <a href="service-express.html" class="btn-secondary" data-t="nav_express">Маркетинг Експрес</a>
+                <a href="service-bundle.html" class="btn-primary" data-t="nav_bundle">Пълен пакет</a>
+                <a href="#" id="lang-toggle" class="btn-secondary">EN</a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    </div>
+
+    <!-- Hero -->
+    <section class="service-detail-hero">
+        <div class="hero-bg">
+            <div class="gradient-sphere sphere-1"></div>
+            <div class="gradient-sphere sphere-2"></div>
+            <div class="floating-puzzle-extra" style="top: 8%; left: 6%; font-size: 45px; animation-delay: -1s; transform: rotate(15deg);"></div>
+            <div class="floating-puzzle-extra" style="top: 15%; right: 12%; font-size: 55px; animation-delay: -3s; transform: rotate(-25deg);"></div>
+            <div class="floating-puzzle-extra" style="top: 35%; right: 28%; font-size: 40px; animation-delay: -2s; transform: rotate(-60deg);"></div>
+            <div class="floating-puzzle-extra" style="top: 65%; right: 15%; font-size: 35px; animation-delay: -4s; transform: rotate(45deg);"></div>
+        </div>
+        <div class="container service-detail-content">
+            <div class="hero-badge">Изработване на Сайт</div>
+            <h1>Вашият Сайт — <span class="text-gradient">Готов за 7 Дни</span></h1>
+            <p class="lead">Проектираме и изграждаме модерни, бързи и конвертиращи уебсайтове. От landing page до корпоративен сайт — с фокус върху резултати, не само върху дизайн.</p>
+            <a href="index.html#contact" class="btn-primary btn-large">Заяви безплатна консултация</a>
+        </div>
+    </section>
+
+    <!-- What's included -->
+    <section class="service-body">
+        <div class="container">
+            <h2>Какво <span class="text-gradient">Включва</span> Услугата?</h2>
+            <p>Получавате завършен, функционален сайт, оптимизиран за търсачки и мобилни устройства — без скрити доплащания.</p>
+            <div class="service-features">
+                <div class="service-feature-card">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <h3>Мобилна Оптимизация</h3>
+                    <p>Вашият сайт работи перфектно на всяко устройство — от телефон до 4K монитор.</p>
+                </div>
+                <div class="service-feature-card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <h3>Бързо Зареждане</h3>
+                    <p>Оптимизиран код и изображения за максимална скорост — ключов фактор за Google и потребителите.</p>
+                </div>
+                <div class="service-feature-card">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <h3>SEO Готовност</h3>
+                    <p>Правилна структура, мета тагове и техническо SEO от самото начало, не като добавка.</p>
+                </div>
+                <div class="service-feature-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Сигурност & Хостинг</h3>
+                    <p>SSL сертификат, защита и препоръки за надежден хостинг — включени в пакета.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7-day timeline -->
+    <section class="webdev-timeline">
+        <div class="container">
+            <h2>Процесът — <span class="text-gradient">7 Дни</span></h2>
+            <p class="section-sub">Работим всеки ден от седмицата, за да получите резултат в срок.</p>
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <span class="day-num">01</span>
+                    <i class="fa-solid fa-comments card-icon"></i>
+                    <h3>Брифинг & Стратегия</h3>
+                    <p>Събираме всичко необходимо — цели, аудитория, конкуренция. Изготвяме wireframe и структура.</p>
+                </div>
+                <div class="timeline-card">
+                    <span class="day-num">02</span>
+                    <i class="fa-solid fa-palette card-icon"></i>
+                    <h3>Дизайн & Визия</h3>
+                    <p>Проектираме визуалния облик — цветова схема, типография, лейаут. Представяме за одобрение.</p>
+                </div>
+                <div class="timeline-card">
+                    <span class="day-num">03</span>
+                    <i class="fa-solid fa-code card-icon"></i>
+                    <h3>Изграждане</h3>
+                    <p>Пишем чист, бърз код. Интегрираме всички секции, форми и функционалности.</p>
+                </div>
+                <div class="timeline-card">
+                    <span class="day-num">04</span>
+                    <i class="fa-solid fa-code card-icon"></i>
+                    <h3>Разработка & Интеграции</h3>
+                    <p>Завършваме всички интеграции — форми, карти, плащания. Финална техническа проверка.</p>
+                </div>
+                <div class="timeline-card">
+                    <span class="day-num">05</span>
+                    <i class="fa-solid fa-file-pen card-icon"></i>
+                    <h3>Съдържание & SEO</h3>
+                    <p>Добавяме текстове, изображения и SEO структура. Оптимизираме за Google.</p>
+                </div>
+                <div class="timeline-card">
+                    <span class="day-num">06</span>
+                    <i class="fa-solid fa-vial card-icon"></i>
+                    <h3>Тестване</h3>
+                    <p>Проверяваме на всички устройства и браузъри. Поправяме детайлите. Скоростен одит.</p>
+                </div>
+                <div class="timeline-card" style="grid-column: 1 / -1; max-width: 360px; margin: 0 auto;">
+                    <span class="day-num">07</span>
+                    <i class="fa-solid fa-rocket card-icon"></i>
+                    <h3>Публикуване</h3>
+                    <p>Качваме сайта на живо. Настройваме домейн, SSL и аналитики. Готово!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="webdev-cta-section">
+        <div class="container">
+            <h2>Готови ли сте за <span class="text-gradient">Вашия Нов Сайт</span>?</h2>
+            <p>Свържете се с нас още днес и започнете проекта си. Работим 7 дни в седмицата.</p>
+            <a href="index.html#contact" class="btn-primary btn-large">Изпрати запитване</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content border-top-glow">
+            <div class="footer-brand">
+                <h2><img src="/images/footer_logo.png" alt="Metropolitan Digital" height="50" style="margin-right: 10px;"></h2>
+                <p data-t="footer_desc">Издигаме дигиталното присъствие от 2026 г.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4 data-t="footer_company">Компания</h4>
+                    <a href="index.html#about" data-t="nav_about">За Нас</a>
+                    <a href="index.html#contact" data-t="nav_contact">Контакти</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-t="footer_services">Услуги</h4>
+                    <a href="service-seo.html" data-t="service_seo_title">SEO Оптимизация</a>
+                    <a href="service-ads.html" data-t="service_ads_title">Реклама</a>
+                    <a href="service-social.html" data-t="service_social_title">Социални Мрежи</a>
+                    <a href="service-marketing.html" data-t="service_plan_title">Маркетинг План</a>
+                    <a href="service-video.html" data-t="service_video_title">Видео Обработка</a>
+                    <a href="service-branding.html" data-t="service_branding_title">Брандинг & Дизайн</a>
+                    <a href="service-pr.html" data-t="service_pr_title">PR & Комуникации</a>
+                    <a href="service-webdev.html">Изработване на Сайт</a>
+                    <a href="service-bundle.html" data-t="service_bundle">Пълен Дигитален Пакет (Bundle)</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-t="footer_legal">Правна Информация</h4>
+                    <a href="privacy-policy.html" data-t="footer_privacy">Политика за Поверителност</a>
+                    <a href="terms.html" data-t="footer_terms">Общи Условия</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container border-top">
+            <p data-t="footer_rights">&copy; 2026 Metropolitan Agency. Всички права запазени.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/translations.js"></script>
+    <script src="/js/supabase.js"></script>
+    <script src="/js/script.js"></script>
+
+
+<!-- Calendly popup widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">
+window.addEventListener('load', function() {
+    if (!sessionStorage.getItem('calendly_shown')) {
+        setTimeout(function() {
+            Calendly.initPopupWidget({ url: 'https://calendly.com/denis-zhelyazkov2/30min' });
+            sessionStorage.setItem('calendly_shown', 'true');
+        }, 45000);
+    }
+});
+</script>
+<!-- Calendly popup widget end -->
+</body>
+</html>
+

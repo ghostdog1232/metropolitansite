@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="bg-BG">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metropolitan Agency | Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&subset=cyrillic,cyrillic-ext&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/puzzle.css">
+    <link rel="stylesheet" href="/css/admin.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QEL23Z1MJH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QEL23Z1MJH');
+</script>
+
+</head>
+<body>
+    <!-- Admin Modals (Service) -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; padding: 40px; border-radius: 10px; background: var(--surface-color);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <h2 id="service-modal-title">Добавяне на Услуга</h2>
+                <button class="close-modal" onclick="window.closeServiceModal()" style="background: none; border: none; font-size: 1.5rem; color: #EFEFEF; cursor: pointer;"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <form id="service-form" class="contact-form">
+                <input type="hidden" id="service-id">
+                <div class="form-group"><input type="text" id="service-title" placeholder="Заглавие" required></div>
+                <div class="form-group"><input type="text" id="service-category" placeholder="Категория" required></div>
+                <div class="form-group"><textarea id="service-description" placeholder="Описание" rows="3" required></textarea></div>
+                <div class="form-group"><input type="text" id="service-price" placeholder="Цена (по избор)"></div>
+                <div class="form-group" style="display: flex; align-items: center; gap: 10px; flex-direction: row;">
+                    <input type="checkbox" id="service-featured" style="width: auto;">
+                    <label for="service-featured">Акцент (показвай на началната страница)</label>
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>Снимка (опционално):</label>
+                    <input type="file" id="service-image" accept="image/png, image/jpeg, image/webp" style="padding: 10px; background: rgba(239, 239, 239,0.05); width: 100%;">
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Запази Услугата</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Modals (Portfolio) -->
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; padding: 40px; border-radius: 10px; background: var(--surface-color);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <h2 id="portfolio-modal-title">Добавяне на Проект</h2>
+                <button class="close-modal" onclick="window.closePortfolioModal()" style="background: none; border: none; font-size: 1.5rem; color: #EFEFEF; cursor: pointer;"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <form id="portfolio-form" class="contact-form">
+                <input type="hidden" id="portfolio-id">
+                <div class="form-group"><input type="text" id="portfolio-title" placeholder="Заглавие на проекта" required></div>
+                <div class="form-group"><input type="text" id="portfolio-client" placeholder="Име на клиент (по избор)"></div>
+                <div class="form-group"><textarea id="portfolio-description" placeholder="Описание" rows="3" required></textarea></div>
+                <div class="form-group">
+                    <label>Основна Снимка:</label>
+                    <input type="file" id="portfolio-image" accept="image/png, image/jpeg, image/webp" style="padding: 10px; background: rgba(239, 239, 239,0.05); width: 100%;">
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Запази Проекта</button>
+            </form>
+        </div>
+    </div>
+    <!-- Login Screen -->
+    <div id="login-screen" class="admin-container container-center">
+        <div class="contact-wrapper" style="max-width: 500px; margin: 100px auto;">
+            <h2 style="margin-bottom: 2rem;">Вход за Администратори</h2>
+            <form id="admin-login-form" class="contact-form">
+                <div class="form-group">
+                    <input type="email" id="admin-email" placeholder="Имейл" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="admin-password" placeholder="Парола" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Влез</button>
+            </form>
+            <p id="login-error" style="color: #ff6b35; margin-top: 1rem; display: none;">Грешен имейл или парола.</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" style="display: none;">
+        <nav class="admin-sidebar">
+            <h2 class="logo" style="display: flex; align-items: center;" style="padding: 20px;">METRO<span>.</span>ADMIN</h2>
+            <ul class="admin-nav-links">
+                <li><a href="#" data-tab="leads" class="active"><i class="fa-solid fa-inbox"></i> Запитвания</a></li>
+                <li><a href="#" data-tab="services"><i class="fa-solid fa-briefcase"></i> Услуги</a></li>
+                <li><a href="#" data-tab="portfolio"><i class="fa-solid fa-images"></i> Портфолио</a></li>
+                <li style="margin-top: 50px;"><a href="#" id="logout-btn"><i class="fa-solid fa-sign-out-alt"></i> Изход</a></li>
+                <li><a href="index.html" target="_blank"><i class="fa-solid fa-external-link-alt"></i> Към Сайта</a></li>
+            </ul>
+        </nav>
+
+        <main class="admin-content">
+            <!-- Leads Tab -->
+            <section id="tab-leads" class="admin-tab active">
+                <div class="admin-header">
+                    <h2>Запитвания (Leads)</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Име & Имейл</th>
+                                <th>Интерес / Съобщение</th>
+                                <th>Статус</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leads-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Services Tab -->
+            <section id="tab-services" class="admin-tab" style="display:none;">
+                <div class="admin-header">
+                    <h2>Услуги</h2>
+                    <button class="btn-primary" onclick="window.openServiceModal()">Добави Услуга</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Снимка</th>
+                                <th>Заглавие / Категория</th>
+                                <th>Акцент?</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="services-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Portfolio Tab -->
+            <section id="tab-portfolio" class="admin-tab" style="display:none;">
+                <div class="admin-header">
+                    <h2>Портфолио</h2>
+                    <button class="btn-primary" onclick="window.openPortfolioModal()">Добави Проект</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Снимка</th>
+                                <th>Заглавие / Клиент</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="portfolio-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase.js"></script>
+    <script type="module" src="/js/admin.js"></script>
+
+
+
+
+
+<!-- Calendly popup widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">
+window.addEventListener('load', function() {
+    if (!sessionStorage.getItem('calendly_shown')) {
+        setTimeout(function() {
+            Calendly.initPopupWidget({ url: 'https://calendly.com/denis-zhelyazkov2/30min' });
+            sessionStorage.setItem('calendly_shown', 'true');
+        }, 45000);
+    }
+});
+</script>
+<!-- Calendly popup widget end -->
+</body>
+</html>
+
+
+
+
+
+
+
